@@ -134,13 +134,13 @@ describe("users", () => {
         const name = `Test Pride ${Date.now()}`;
         const email = `test${Date.now()}@mailservice.com`;
         const data = {
-            status: "active",
+            status: "inactive",
             name: name,
             email: email
         };
         
         const res = await request
-            .put("/users/6942475")
+            .put("/users/7538600")
             .set("Authorization", `Bearer ${token}`) // Format token yang benar
             .set("Content-Type", "application/json")
             .send(data);
