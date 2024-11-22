@@ -134,7 +134,7 @@ describe("users", () => {
         const name = `Test Pride ${Date.now()}`;
         const email = `test${Date.now()}@mailservice.com`;
         const data = {
-            status: "inactive",
+            status: "active",
             name: name,
             email: email
         };
