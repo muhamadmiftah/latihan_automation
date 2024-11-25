@@ -17,7 +17,7 @@ describe("users", () => {
     });
 
     it("GET /users?id", async () => {
-        const userId = 7538052; // Ganti dengan ID yang valid
+        const userId = 7538667; // Ganti dengan ID yang valid
         const res = await request.get(`/users?id=${userId}`);
     
         console.log("Status:", res.status);

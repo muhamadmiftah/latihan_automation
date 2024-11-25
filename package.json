@@ -3,8 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type":"module",
     "scripts": {
-        "test": "mocha"
+        "test": "nyc mocha --reporter mochawesome",
+        "test:report": "npm test && open-cli ./mochawesome-report/mochawesome.html"
     },
     "keywords": [],
     "author": "",
@@ -17,6 +19,9 @@
         "@babel/register": "^7.25.9",
         "chai": "^4.2.0",
         "mocha": "^8.1.3",
+        "mochawesome": "^7.1.3",
+        "nyc": "^17.1.0",
+        "open-cli": "^8.0.0",
         "supertest": "^4.0.2"
     }
 }
