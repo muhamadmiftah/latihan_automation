@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type":"module",
+    "type": "module",
     "scripts": {
         "test": "mocha --reporter mochawesome",
         "test:report": "npm test && open-cli ./mochawesome-report/mochawesome.html"
@@ -20,7 +20,6 @@
         "chai": "^4.2.0",
         "mocha": "^8.1.3",
         "mochawesome": "^7.1.3",
-        "nyc": "^17.1.0",
         "open-cli": "^8.0.0",
         "supertest": "^4.0.2"
     }
