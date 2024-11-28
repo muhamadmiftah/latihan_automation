@@ -17,7 +17,7 @@ describe("users", () => {
     });
 
     it("GET /users?id", async () => {
-        const userId = 7543746; // Ganti dengan ID yang valid
+        const userId = 7549088; // Ganti dengan ID yang valid
         const res = await request.get(`/users?id=${userId}`);
     
         console.log("Status:", res.status);
@@ -134,13 +134,13 @@ describe("users", () => {
         const name = `Test Pride ${Date.now()}`;
         const email = `test${Date.now()}@mailservice.com`;
         const data = {
-            status: "inactive",
+            status: "active",
             name: name,
             email: email
         };
         
         const res = await request
-            .put("/users/7538600")
+            .put("/users/7549080")
             .set("Authorization", `Bearer ${token}`) // Format token yang benar
             .set("Content-Type", "application/json")
             .send(data);
