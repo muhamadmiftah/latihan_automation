@@ -5,7 +5,7 @@ const request = supertest("https://gorest.co.in/public/v2");
 const token = "ebecd22435bc49add03ede5e0f1ece443389094798df62cbcd4f6c3b68f832f4";
 
 
-describe("users", () => {
+describe("users functional test", () => {
     
     it("GET /users", async () => {
         const res = await request.get("/users");
@@ -16,8 +16,8 @@ describe("users", () => {
         console.log(res.body);
     });
 
-    it("GET /users?id", async () => {
-        const userId = 7549088; // Ganti dengan ID yang valid
+    it("GET /users with id", async () => {
+        const userId = 7551200; // Ganti dengan ID yang valid
         const res = await request.get(`/users?id=${userId}`);
     
         console.log("Status:", res.status);
@@ -38,7 +38,7 @@ describe("users", () => {
         }
     });
 
-    it("GET /users?gender", async () => {
+    it("GET /users with gender", async () => {
         const usersgender = "female"; // Contoh gender
         const res = await request.get(`/users?gender=${usersgender}`);
         
@@ -57,7 +57,7 @@ describe("users", () => {
         }
     });
 
-    it("GET /users?gender&status", async () => {
+    it("GET /users with gender & status", async () => {
         
         const usersgender = "female"; // Contoh gender
         const usersstatus = "active"; // Contoh status
@@ -102,7 +102,20 @@ describe("users", () => {
         expect(userslastid).to.have.property("name");
     });
 
-    it("POST /users", async () => {    
+    it("GET /with invalid link url", async () => {
+        const res = await request.get("/user").set("Authorization", `Bearer ${token}`);
+        
+        // Assertions
+        if (Object.keys(res.body).length > 0) {
+            expect(res.body).to.have.property("error");
+            expect(res.body.error).to.include("Not Found");
+        } else {
+            console.log("Empty response body");
+            expect(res.body).to.be.empty;
+        }
+    });
+
+    it("POST /add users ", async () => {    
         const email = `test${Date.now()}@mailservice.com`; // Email unik
         const name = `Test Pride ${Date.now()}`; //nama unik
         const data = {
@@ -130,7 +143,7 @@ describe("users", () => {
         expect(res.body.status).to.equal(data.status);
     });
 
-    it("PUT /users/:id", async () => {   
+    it("PUT /update users with id", async () => {   
         const name = `Test Pride ${Date.now()}`;
         const email = `test${Date.now()}@mailservice.com`;
         const data = {
